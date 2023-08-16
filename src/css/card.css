@@ -1,0 +1,95 @@
+.card {
+  width: 100%;
+  max-width: 380px;
+  min-width: 200px;
+  /* min-height: 80px; */
+  max-height: 150px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px 9px 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.ticket-row-1,
+.ticket-row-2,
+.ticket-row-3 {
+  width: 96%;
+}
+
+.ticket-row-2 {
+  margin-bottom: 12px;
+}
+
+.ticket-row-1 {
+  min-height: 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-photo {
+  border: 2px solid red;
+}
+
+.ticket-userId {
+  width: fit-content;
+  height: 100%;
+  color: #808080;
+  font-weight: 600;
+}
+
+.user-photo {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+.title {
+  font-weight: 600;
+  font-size: medium;
+  display: flex;
+  gap: 2px;
+}
+
+.bi-check-circle-fill {
+  color: blue;
+}
+
+.bi-circle-fill {
+  color: gray;
+  font-size: small;
+}
+
+.status,
+.description {
+  display: block;
+}
+
+.feat-req {
+  border: 0.8px solid rgb(150, 150, 150);
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3px;
+  padding: 3px;
+  border-radius: 4px;
+}
+
+.Feature-description {
+  display: block;
+  font-size: small;
+  color: #808080;
+  font-weight: 600;
+}
+
+.feat-req-icon {
+  display: flex;
+  align-items: center;
+}

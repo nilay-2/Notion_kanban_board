@@ -1,0 +1,14 @@
+.wrapper {
+  width: 380px;
+  height: auto;
+  max-height: 622px;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-list {
+  height: calc(622px - 80px);
+  overflow: auto;
+}

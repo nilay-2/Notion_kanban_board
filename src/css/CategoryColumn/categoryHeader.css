@@ -1,0 +1,45 @@
+.category-header {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-detail-header {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bi-circle {
+  font-weight: bolder;
+  color: grey;
+}
+
+.card-status {
+  width: fit-content;
+  font-size: large;
+  font-weight: 600;
+  margin: 0 10px;
+}
+
+.card-count {
+  font-size: large;
+  color: #808080;
+  font-weight: 600;
+}
+
+.add-icon {
+  width: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-icon .bi-plus-lg,
+.add-icon .bi-three-dots {
+  color: grey;
+  font-size: x-large;
+  font-weight: bolder;
+  cursor: pointer;
+}
