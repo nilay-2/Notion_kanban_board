@@ -22,7 +22,7 @@ const Card = ({ ticket }) => {
           <span className="feat-req-icon">
             <i className="bi bi-circle-fill"></i>
           </span>
-          <span className="Feature-description">Feature Request</span>
+          <span className="Feature-description">{ticket?.tag}</span>
         </div>
       </div>
     </div>
