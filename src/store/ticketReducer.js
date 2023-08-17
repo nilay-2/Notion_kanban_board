@@ -1,5 +1,5 @@
 import { setOfCategory } from "../utils/setOfCategory";
-
+import { sortTickets } from "../utils/sortTickets";
 export const initialState = {
   tickets: [],
   users: [],
@@ -13,7 +13,7 @@ export const reducer = (state, action) => {
     case "SET_TICKETS":
       return {
         ...state,
-        tickets: action.tickets,
+        tickets: sortTickets(action.tickets, state.orderBy),
         queryCategory: [...setOfCategory(action.tickets)],
       };
 
@@ -24,7 +24,29 @@ export const reducer = (state, action) => {
       return {
         ...state,
         groupBy: action.groupBy,
-        queryCategory: [...setOfCategory(state.tickets, action.groupBy)],
+        queryCategory:
+          action.groupBy === "userId"
+            ? [...setOfCategory(state.tickets, action.groupBy, state.users)]
+            : [...setOfCategory(state.tickets, action.groupBy)],
+      };
+
+    case "SET_ORDERBY_QUERY":
+      return {
+        ...state,
+        orderBy: action.orderBy,
+        tickets: sortTickets(state.tickets, action.orderBy),
+      };
+
+    case "SET_VIEW_STATE":
+      return {
+        ...state,
+        orderBy: action.orderBy,
+        groupBy: action.groupBy,
+        tickets: sortTickets(action.tickets, action.orderBy),
+        queryCategory:
+          action.groupBy === "userId"
+            ? [...setOfCategory(action.tickets, action.groupBy, action.users)]
+            : [...setOfCategory(action.tickets, action.groupBy)],
       };
     default:
       return state;

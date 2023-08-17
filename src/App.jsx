@@ -10,14 +10,26 @@ export const AppContext = createContext();
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // fetch tasks
   useEffect(() => {
+    // fetch tasks
     const getTasksResponse = async () => {
       const res = await getTasks();
       const tasks = await res.json();
-      console.log(tasks);
+      // console.log(tasks);
+      const viewState = JSON.parse(localStorage.getItem("view"));
       dispatch({ type: "SET_TICKETS", tickets: tasks.tickets });
       dispatch({ type: "SET_USERS", users: tasks.users });
+
+      // for getting the stored state from localStorage each the users reloads
+      if (viewState) {
+        dispatch({
+          type: "SET_VIEW_STATE",
+          groupBy: viewState.groupBy,
+          orderBy: viewState.orderBy,
+          tickets: tasks.tickets,
+          users: tasks.users,
+        });
+      }
     };
     getTasksResponse();
   }, []);
@@ -31,6 +43,7 @@ function App() {
           users: state.users,
           dispatch: dispatch,
           groupBy: state.groupBy,
+          orderBy: state.orderBy,
         }}
       >
         <header className="head">

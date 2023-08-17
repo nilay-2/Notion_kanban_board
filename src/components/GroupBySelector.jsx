@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import "../css/groupBySelector.css";
 import { AppContext } from "../App";
+import { storeViewState } from "../utils/storeViewState";
 const GroupBySelector = () => {
   const state = useContext(AppContext);
 
@@ -8,7 +9,7 @@ const GroupBySelector = () => {
   const [groupBy, setGroupBy] = useState("status");
   const [orderBy, setOrderBy] = useState("priority");
 
-  console.log(groupBy, orderBy);
+  // console.log(state);
 
   const toggleDialogHandler = () => {
     setOpenDialog(!openDialog);
@@ -21,10 +22,13 @@ const GroupBySelector = () => {
   const changeGroupByHandler = (e) => {
     setGroupBy(e.target.value);
     state.dispatch({ type: "SET_GROUPBY_QUERY", groupBy: e.target.value });
+    storeViewState({ groupBy: e.target.value, orderBy: state.orderBy });
   };
 
   const changeOrderByHandler = (e) => {
     setOrderBy(e.target.value);
+    state.dispatch({ type: "SET_ORDERBY_QUERY", orderBy: e.target.value });
+    storeViewState({ groupBy: state.groupBy, orderBy: e.target.value });
   };
 
   // console.log(groupBy);
@@ -41,12 +45,13 @@ const GroupBySelector = () => {
             <select
               name="group"
               id="group"
-              value={groupBy}
+              // value={groupBy}
               onChange={changeGroupByHandler}
+              defaultValue={state.groupBy}
             >
               <option value="status">Status</option>
               <option value="priority">Priority</option>
-              <option value="user">User</option>
+              <option value="userId">User</option>
             </select>
           </div>
           <div className="groupby-card">
@@ -54,8 +59,9 @@ const GroupBySelector = () => {
             <select
               name="priority"
               id="priority"
-              value={orderBy}
+              // value={orderBy}
               onChange={changeOrderByHandler}
+              defaultValue={state.orderBy}
             >
               <option value="priority">Priority</option>
               <option value="title">Title</option>

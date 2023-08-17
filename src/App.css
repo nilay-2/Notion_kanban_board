@@ -22,7 +22,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, 390px);
-  row-gap: 30px;
+  row-gap: 10px;
   column-gap: 30px;
 }
 

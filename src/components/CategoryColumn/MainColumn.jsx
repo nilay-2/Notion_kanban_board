@@ -6,14 +6,14 @@ import { AppContext } from "../../App";
 import { returnQueryResults } from "../../utils/ReturnElements";
 const MainColumn = ({ category }) => {
   const state = useContext(AppContext);
-  console.log(state);
+  // console.log(state);
 
-  returnQueryResults(category, state.tickets);
+  // returnQueryResults(category, state.tickets);
   return (
     <div className="wrapper">
       <CategoryHeader
         category={category}
-        listLength={returnQueryResults(category, state.tickets)}
+        listLength={returnQueryResults(category, state.tickets, state.groupBy)}
       />
       <div className="card-list">
         {returnQueryResults(category, state.tickets, state.groupBy).map(
