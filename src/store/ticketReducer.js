@@ -13,8 +13,8 @@ export const reducer = (state, action) => {
     case "SET_TICKETS":
       return {
         ...state,
-        tickets: sortTickets(action.tickets, state.orderBy),
         queryCategory: [...setOfCategory(action.tickets)],
+        tickets: sortTickets(action.tickets, state.orderBy),
       };
 
     case "SET_USERS":
@@ -42,11 +42,12 @@ export const reducer = (state, action) => {
         ...state,
         orderBy: action.orderBy,
         groupBy: action.groupBy,
-        tickets: sortTickets(action.tickets, action.orderBy),
+        users: action.users,
         queryCategory:
           action.groupBy === "userId"
             ? [...setOfCategory(action.tickets, action.groupBy, action.users)]
             : [...setOfCategory(action.tickets, action.groupBy)],
+        tickets: sortTickets(action.tickets, action.orderBy),
       };
     default:
       return state;

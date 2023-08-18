@@ -17,11 +17,9 @@ function App() {
       const res = await getTasks();
       const tasks = await res.json();
       // console.log(tasks);
-      const viewState = JSON.parse(localStorage.getItem("view"));
-      dispatch({ type: "SET_TICKETS", tickets: tasks.tickets });
-      dispatch({ type: "SET_USERS", users: tasks.users });
-
       // for getting the stored state from localStorage each the users reloads
+      const viewState = JSON.parse(localStorage.getItem("view"));
+      // console.log("viewState", viewState);
       if (viewState) {
         dispatch({
           type: "SET_VIEW_STATE",
@@ -30,6 +28,9 @@ function App() {
           tickets: tasks.tickets,
           users: tasks.users,
         });
+      } else {
+        dispatch({ type: "SET_TICKETS", tickets: tasks.tickets });
+        dispatch({ type: "SET_USERS", users: tasks.users });
       }
     };
     getTasksResponse();

@@ -21,7 +21,7 @@ const Card = ({ ticket }) => {
       </div>
       <div className="ticket-row-3">
         <div className="exclamation-icon">
-          <i class="bi bi-exclamation-square-fill"></i>
+          <i className="bi bi-exclamation-square-fill"></i>
         </div>
         <div className="feat-req">
           <span className="feat-req-icon">
