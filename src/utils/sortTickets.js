@@ -1,7 +1,7 @@
 export const sortTickets = (tickets, orderBy) => {
   if (orderBy === "priority") {
     tickets.sort((a, b) => {
-      return a.priority - b.priority;
+      return b.priority - a.priority;
     });
     return tickets;
   }

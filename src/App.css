@@ -14,15 +14,16 @@
   min-width: 380px;
   min-height: calc(100vh - 60px);
   height: auto;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
+  background-color: #f4f5ff;
 }
 
 .category-wrapper-content {
   max-width: 2500px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 390px);
-  row-gap: 10px;
+  grid-template-columns: repeat(auto-fit, 315px);
+  /* row-gap: 5px; */
   column-gap: 30px;
 }
 

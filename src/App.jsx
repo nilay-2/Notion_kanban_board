@@ -56,9 +56,6 @@ function App() {
             {state.queryCategory.map((category, i) => {
               return <MainColumn key={i} category={category} />;
             })}
-            {/*[1, 2, 3, 4, 5].map((category, i) => {
-              return <MainColumn key={i} category={category} />;
-            })*/}
           </div>
         </section>
       </AppContext.Provider>

@@ -3,6 +3,7 @@
   max-width: 380px;
   min-width: 200px;
   /* min-height: 80px; */
+  /* max-height: 150px; */
   max-height: 150px;
   border-radius: 6px;
   display: flex;
@@ -10,7 +11,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 6px 8px 9px 8px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   background-color: #fff;
   margin-bottom: 10px;
 }
@@ -19,6 +22,26 @@
 .ticket-row-2,
 .ticket-row-3 {
   width: 96%;
+}
+
+.ticket-row-3 {
+  display: flex;
+  align-items: center;
+}
+
+.bi-exclamation-square-fill {
+  font-size: small;
+  color: #585858;
+}
+
+.exclamation-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.8px solid rgb(150, 150, 150);
+  border-radius: 4px;
+  padding: 3px;
+  margin-right: 5px;
 }
 
 .ticket-row-2 {
