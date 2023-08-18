@@ -11,6 +11,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
+    document.title = "Kanban-board";
     // fetch tasks
     const getTasksResponse = async () => {
       const res = await getTasks();
