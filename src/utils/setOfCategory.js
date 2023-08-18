@@ -1,16 +1,18 @@
+import { sortCategory } from "./sortCategory";
+
 export const setOfCategory = (tickets, query = "status", users = []) => {
   if (!users.length) {
     const setOfCategory = new Set();
     tickets.forEach((ticket) => {
       setOfCategory.add(ticket[query]);
     });
-    return setOfCategory;
+    return sortCategory([...setOfCategory], query);
   } else {
     const setOfCategory = new Set();
     users.forEach((usr) => {
       setOfCategory.add(usr.id);
     });
-    return setOfCategory;
+    return sortCategory([...setOfCategory], query);
   }
 };
 

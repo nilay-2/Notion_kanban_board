@@ -13,7 +13,8 @@ export const reducer = (state, action) => {
     case "SET_TICKETS":
       return {
         ...state,
-        queryCategory: [...setOfCategory(action.tickets)],
+        queryCategory: setOfCategory(action.tickets),
+        // queryCategory: [...setOfCategory(action.tickets)],
         tickets: sortTickets(action.tickets, state.orderBy),
       };
 
@@ -26,8 +27,12 @@ export const reducer = (state, action) => {
         groupBy: action.groupBy,
         queryCategory:
           action.groupBy === "userId"
-            ? [...setOfCategory(state.tickets, action.groupBy, state.users)]
-            : [...setOfCategory(state.tickets, action.groupBy)],
+            ? setOfCategory(state.tickets, action.groupBy, state.users)
+            : setOfCategory(state.tickets, action.groupBy),
+        // queryCategory:
+        //   action.groupBy === "userId"
+        //     ? [...setOfCategory(state.tickets, action.groupBy, state.users)]
+        //     : [...setOfCategory(state.tickets, action.groupBy)],
       };
 
     case "SET_ORDERBY_QUERY":
@@ -45,8 +50,12 @@ export const reducer = (state, action) => {
         users: action.users,
         queryCategory:
           action.groupBy === "userId"
-            ? [...setOfCategory(action.tickets, action.groupBy, action.users)]
-            : [...setOfCategory(action.tickets, action.groupBy)],
+            ? setOfCategory(action.tickets, action.groupBy, action.users)
+            : setOfCategory(action.tickets, action.groupBy),
+        // queryCategory:
+        //   action.groupBy === "userId"
+        //     ? [...setOfCategory(action.tickets, action.groupBy, action.users)]
+        //     : [...setOfCategory(action.tickets, action.groupBy)],
         tickets: sortTickets(action.tickets, action.orderBy),
       };
     default:
